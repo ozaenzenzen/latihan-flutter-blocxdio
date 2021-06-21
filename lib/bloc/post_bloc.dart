@@ -31,15 +31,17 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   @override
   Stream<PostState> mapEventToState(PostEvent event) async* {
     List<Post> posts;
+
     if (state is PostUnitialized) {
-      posts = await ConnectAPI.getPost(0, 100);
+      posts = await ConnectAPI.getPost(0, 10);
       yield PostLoaded(posts: posts, hasReachedMax: false);
     } else {
       PostLoaded postLoaded = state as PostLoaded;
       posts = await ConnectAPI.getPost(postLoaded.posts!.length, 10);
+
       yield (posts.isEmpty)
           ? postLoaded.copyWith(hasReachedMax: true)
-          : PostLoaded(posts: postLoaded.posts, hasReachedMax: false);
+          : PostLoaded(posts: postLoaded.posts! + posts, hasReachedMax: false);
     }
      throw UnimplementedError();
   }
