@@ -43,6 +43,6 @@ class PostBloc extends Bloc<PostEvent, PostState> {
           ? postLoaded.copyWith(hasReachedMax: true)
           : PostLoaded(posts: postLoaded.posts! + posts, hasReachedMax: false);
     }
-     throw UnimplementedError();
+    //  throw UnimplementedError();
   }
 }
