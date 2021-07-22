@@ -29,44 +29,57 @@ class PostItem extends StatelessWidget {
         horizontal: 10,
         vertical: 15,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            margin: EdgeInsets.only(
-              left: 20,
-            ),
-            child: Text(
-              post.id.toString(),
-              style: GoogleFonts.lato(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      child: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 15,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
               children: [
-                Text(
-                  post.title.toString(),
-                  style: GoogleFonts.lato(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 10,
+                    left: 20,
                   ),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  post.body.toString(),
-                  style: GoogleFonts.lato(),
+                  child: Text(
+                    post.id.toString(),
+                    style: GoogleFonts.lato(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
-          ),
-        ],
+            SizedBox(
+              width: 20,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    post.title.toString(),
+                    style: GoogleFonts.lato(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    post.body.toString(),
+                    style: GoogleFonts.lato(),
+                    textAlign: TextAlign.justify,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
