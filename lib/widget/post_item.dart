@@ -14,17 +14,18 @@ class PostItem extends StatelessWidget {
     // var i = index;
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          // border: Border.all(),
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(5, 5),
-              color: Colors.black54,
-              blurRadius: 5,
-              spreadRadius: 0.5,
-            ),
-          ]),
+        color: Colors.white,
+        // border: Border.all(),
+        // borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(3, 4),
+            color: Colors.black45,
+            blurRadius: 7,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
       margin: EdgeInsets.symmetric(
         horizontal: 10,
         vertical: 15,
