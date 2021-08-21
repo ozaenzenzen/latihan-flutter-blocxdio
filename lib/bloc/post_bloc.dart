@@ -1,29 +1,10 @@
 import 'package:bloc/bloc.dart';
+
 import 'package:flutter_bloc_lat4/api/connect/connect_api.dart';
 import 'package:flutter_bloc_lat4/api/model/post.dart';
 
-class PostEvent {}
-
-abstract class PostState {}
-
-class PostUnitialized extends PostState {}
-
-class PostLoaded extends PostState {
-  List<Post>? posts;
-  bool? hasReachedMax;
-
-  PostLoaded({
-    this.posts,
-    this.hasReachedMax,
-  });
-
-  PostLoaded copyWith({List<Post>? posts, bool? hasReachedMax}) {
-    return PostLoaded(
-      posts: posts ?? this.posts,
-      hasReachedMax: hasReachedMax ?? this.hasReachedMax,
-    );
-  }
-}
+part 'post_event.dart';
+part 'post_state.dart';
 
 class PostBloc extends Bloc<PostEvent, PostState> {
   PostBloc() : super(PostUnitialized());
