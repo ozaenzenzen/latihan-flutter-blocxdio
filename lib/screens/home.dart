@@ -29,10 +29,13 @@ class _HomeState extends State<Home> {
     scrollController.addListener(onScroll);
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
           "Bloc ListView",
           style: GoogleFonts.lato(
+            color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -49,6 +52,7 @@ class _HomeState extends State<Home> {
             } else {
               PostLoaded postLoaded = state as PostLoaded;
               return ListView.builder(
+                physics: BouncingScrollPhysics(),
                 controller: scrollController,
                 itemCount: (postLoaded.hasReachedMax ?? true)
                     ? postLoaded.posts!.length
